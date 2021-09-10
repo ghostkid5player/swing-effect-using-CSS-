@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css card  effect #2</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-size: 62.5%;
+        }
+        .main{
+                height: 100vh;
+                width: 100vw;
+                background-color: #db12c0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+        }
+        .center{
+            height: 11rem;
+            width: 9rem;        
+            background-color:#fff ;
+            position: relative;
+            
+            transform: perspective(1000px) rotatex(60deg) translatez(200px);
+            animation: move 2.5s linear infinite;
+            display: grid;
+            place-items: center;
+        }
+        .center::before{
+            content: '';
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 200%;
+            width: 5%;
+            background-color: brown;
+            transform: translatey(-100%);
+        }
+        .center::after{
+            content: '';
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 200%;
+            width: 5%;
+            background-color: brown;
+            transform: translatey(-100%);
+        }
+        .card{
+            position: absolute;
+            height: 2rem;
+            width: 2rem;
+            background-color: #db12c0;
+            position: relative;
+            transform: rotate(45deg);
+            box-shadow: 0 0 10px 10px #db12c0;
+            /* box-shadow: 0 0 10px 10px #db12c0; */
+        }
+        .card::before{
+            content: '';
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: #db12c0;
+            transform: translatex(-90%);
+        }
+        .card::after{
+            content: '';
+            
+            border-top-right-radius: 50%;
+            border-top-left-radius: 50%;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: #db12c0;
+            transform: translateY(-90%);
+        }
+        @keyframes move{
+            0%{ 
+                transform: perspective(800px) rotatex(60deg) translatez(200px);
+            }
+            50%{
+                transform: perspective(800px) rotatex(60deg) translatez(200px);
+            }
+            75%{
+                transform: perspective(800px) rotatex(-60deg) translatez(-200px);
+            }
+            100%{
+                transform: perspective(10000000px) rotatex(60deg) translatez(200px);
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="center">
+        <div class="card"></div>
+    </div>
+    <h1>swing effect using css</h1>
+    </div>
+</body>
+</html>
